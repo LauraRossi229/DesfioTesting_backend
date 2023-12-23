@@ -1,79 +1,93 @@
 import chai from 'chai';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';    
 import supertest from 'supertest';
 
+
 const expect = chai.expect;
-dotenv.config();
+const api = supertest('http://localhost:8080/api'); 
 
-let test_user_email = 'mailprueba@prueba'
-let test_user_id = null;
+let token; // Almacena el token para usarlo en otras solicitudes
 
-const api = supertest('http://localhost:8080/api');
+describe('Test del modelo de usuario CRUD en la ruta api/sessions/register', function () {        
+    describe('Ruta api/sessions/register método post', function () {
+        let testUserId = null;
 
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB Conectada"))
-  .catch(() => console.log("Error en conexion a BDD"));
+        it('Crear un usuario mediante post', async function() {
+            this.timeout(5000);
 
-describe(' test user model CRUD en la ruta api/users', function () {        
-    describe('ruta api/users metodo post', function () {
-        let token = null;
-        it('crear un usuario mediante post ', async function() { // Increase timeout here
-            this.timeout(5000); // Increase timeout to 5000ms
-            const newuser = {
+            const newUser = {
                 first_name: 'Juan',
                 last_name: 'Perez',
                 age: 30,
-                email: test_user_email,
-                password: '1234'    
-            };
-            const { statusCode, _body, ok} = await api.post('/users/signup').send(newuser);
-            expect(statusCode).to.be.equal(200);
-        });
-
-        it('solicitar datos de usuarios mediante GET en /users/email/:email', async function() { // Increase timeout here
-            this.timeout(5000); // Increase timeout to 5000ms
-            const { statusCode, _body, ok} = await api.get(`/users/email/${test_user_email}`);
-            test_user_id = _body._id;
-            expect(statusCode).to.be.equal(200);
-        });
-
-        it('actualizar usuario mediante PUT en /users/:id', async function() { // Increase timeout here
-            this.timeout(5000); // Increase timeout to 5000ms
-            const user = {
-                first_name: 'Juan',
-                last_name: 'Perez',
-                age: 30
-            };
-            const { statusCode, _body, ok} = await api.put(`/users/${test_user_id}`).send(user);
-            expect(statusCode).to.be.equal(200);    
-        });
-
-        it('iniciar sesion con post a traves de /sessions/login', async function() { // Increase timeout here 
-            this.timeout(5000); // Increase timeout to 5000ms
-            const user = {
-                email: test_user_email,
+                email: 'mailprueba@prueba',
                 password: '1234'
             };
-            const { statusCode, _body, ok} = await api.post('/sessions/login').send(user);
-            token = _body.token;
-            expect(statusCode).to.be.equal(200);
+
+            const response = await api.post('/sessions/register').send(newUser); // Cambiado a '/sessions/register'
+            expect(response.statusCode).to.be.equal(200);
+        });
+
+        it('Solicitar datos de usuarios mediante GET en /api/users', async function() {
+            this.timeout(5000);
+
+            const response = await api.get('/users'); // Cambiado a '/users'
+            testUserId = response.body[0]._id;
+            expect(response.statusCode).to.be.equal(200);
+        });
+
+        it('Actualizar usuario mediante PUT en /api/users/:id', async function() {
+            this.timeout(5000);
+
+            const updatedUser = {
+                first_name: 'NuevoNombre',
+                last_name: 'NuevoApellido',
+                age: 25
+            };
+
+            const response = await api.put(`/users/${testUserId}`) // Cambiado a '/users'
+                .send(updatedUser)
+                .set('Authorization', `Bearer ${token}`);
+
+            expect(response.statusCode).to.be.equal(200);
+        });
+
+        it('Iniciar sesión con post a través de /api/sessions/login', async function() {
+            this.timeout(5000);
+
+            const loginUser = {
+                email: 'mailprueba@prueba',
+                password: '1234'
+            };
+
+            const response = await api.post('/sessions/login').send(loginUser);
+            token = response.body.token;
+            expect(response.statusCode).to.be.equal(200);
             expect(token).to.be.ok;
         });
 
-        it('consultar datos de usuario a traves de GET en sessions/current', async function() { // Increase timeout here')
-            this.timeout(5000); // Increase timeout to 5000ms
-            const { statusCode, _body, ok} = await api.get('/sessions/current').set('Authorization', `Bearer ${token}`);
-            expect(statusCode).to.be.equal(200);
-            expect(_body).to.be.ok;
-            expect(_body.user.email).to.be.equal(test_user_email);
-        });
+        it('Consultar datos de usuario a través de GET en sessions/current', async function() {
+            this.timeout(5000);
+        
+            const response = await api.get('/sessions/current')
+                .set('Authorization', `Bearer ${token}`)
+                .expect('Content-Type', /json/)
+                .expect(200);
+        
+             // Verificar que la respuesta es la esperada
+                expect(response.body).to.have.property('token'); // Reemplaza 'tu_propiedad_esperada' con la propiedad que esperas en la respuesta
 
-        it('eliminar usuario mediante DELETE en /users/:id', async function() { // Increase timeout here
-            this.timeout(5000); // Increase timeout to 5000ms
-            const { statusCode, _body, ok} = await api.delete(`/users/${test_user_id}`);
-            expect(statusCode).to.be.equal(200);
+            expect(response.body).to.be.ok;
+            expect(response.body.email).to.be.equal('mailprueba@prueba');
+
+        });
+        
+
+        it('Eliminar usuario mediante DELETE en /api/users/:id', async function() {
+            this.timeout(5000);
+
+            const response = await api.delete(`/users/${testUserId}`) // Cambiado a '/users'
+                .set('Authorization', `Bearer ${token}`);
+
+            expect(response.statusCode).to.be.equal(200);
         });
     });
 });
