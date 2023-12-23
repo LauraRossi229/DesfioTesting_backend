@@ -1,0 +1,64 @@
+[31mfatal[39m: GET es /mockingproducts - 07:38:52
+[31mfatal[39m: GET es /mockingproducts - 07:38:52
+[31mfatal[39m: GET es /mockingproducts - 07:39:13
+[31mfatal[39m: GET es /mockingproducts - 07:39:13
+[31mfatal[39m: POST es /api/mockingproducts - 08:15:13
+[31mfatal[39m: POST es /api/mockingproducts - 08:15:13
+[31mfatal[39m: GET es /info - 09:36:56
+[31mfatal[39m: GET es /info - 09:36:56
+[31mfatal[39m: GET es /debug - 09:39:00
+[31mfatal[39m: GET es /debug - 09:39:00
+[31mfatal[39m: GET es /warning - 09:40:35
+[31mfatal[39m: GET es /warning - 09:40:35
+[31mfatal[39m: GET es /error - 09:41:28
+[31mfatal[39m: GET es /error - 09:41:28
+[31mfatal[39m: GET es /error - 09:43:25
+[31mfatal[39m: GET es /error - 09:43:25
+[31merror[39m: Error
+[31mfatal[39m: GET es /fatal - 09:44:21
+[31mfatal[39m: GET es /fatal - 09:44:21
+[31mfatal[39m: Fatal
+[31mfatal[39m: Fatal
+[31mfatal[39m: GET es /loggerTest - 09:45:02
+[31mfatal[39m: GET es /loggerTest - 09:45:02
+[31mfatal[39m: Fatal message
+[31merror[39m: Error message
+[31mfatal[39m: Fatal message
+[31mfatal[39m: POST es /api/register - 11:12:29
+[31mfatal[39m: POST es /api/register - 11:12:29
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:23:49
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:23:49
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:24:20
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:24:20
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:04
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:04
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:22
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:22
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:52
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:25:52
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:26:52
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:26:52
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:28:24
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:28:24
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:28:42
+[31mfatal[39m: POST es /api/sessions/login%0A - 11:28:42
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:29:24
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:29:24
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:30:13
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:30:13
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:33:07
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:33:07
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:33:54
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:33:54
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:34:29
+[31mfatal[39m: POST es /api/sessions/register%0A - 11:34:29
+[31mfatal[39m: POST es /api/users/premium/657c614dc530e26581e76666 - 11:40:58
+[31mfatal[39m: POST es /api/users/premium/657c614dc530e26581e76666 - 11:40:58
+[31mfatal[39m: POST es /api/users/premium/657c614dc530e26581e76666 - 11:42:12
+[31mfatal[39m: POST es /api/users/premium/657c614dc530e26581e76666 - 11:42:12
+[31mfatal[39m: POST es /api/users/signup - 02:12:26
+[31mfatal[39m: POST es /api/users/signup - 02:12:26
+[31mfatal[39m: GET es /api/users/email/mailprueba@prueba - 02:12:26
+[31mfatal[39m: GET es /api/users/email/mailprueba@prueba - 02:12:26
+[31mfatal[39m: GET es /favicon.ico - 02:12:54
+[31mfatal[39m: GET es /favicon.ico - 02:12:54
