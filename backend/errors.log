@@ -88,3 +88,9 @@
 [31mfatal[39m: GET es /api/api/sessions/current - 18:32:44
 [31mfatal[39m: DELETE es /api/api/users/undefined - 18:32:44
 [31mfatal[39m: DELETE es /api/api/users/undefined - 18:32:44
+[31mfatal[39m: PUT es /api/products/:id/6587714816a0d3ae6aea74bf - 20:51:46
+[31mfatal[39m: PUT es /api/products/:id/6587714816a0d3ae6aea74bf - 20:51:46
+[31mfatal[39m: POST es /api/sessions/logout - 21:28:23
+[31mfatal[39m: POST es /api/sessions/logout - 21:28:23
+[31mfatal[39m: GET es /api/sessions/login - 21:49:15
+[31mfatal[39m: GET es /api/sessions/login - 21:49:15

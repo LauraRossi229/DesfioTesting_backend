@@ -28,8 +28,8 @@ describe('test CRUD de las ruta /api/products', function () {
         it('iniciar sesion con post a traves de /sessions/login', async function() { // Increase timeout here 
             this.timeout(5000); // Increase timeout to 5000ms
             const user = {
-                email: 'lorena@lorena.com',
-                password: 'lore123'
+                email: "lorena@lorena.com",
+                password: "lore123"
             };
             const { statusCode, _body, ok} = await api.post('/sessions/login').send(user);
             token = _body.token;
@@ -64,7 +64,7 @@ describe('test CRUD de las ruta /api/products', function () {
                 code: 'prueba222',
                 category: 'Idiomas'  
             };
-            const { statusCode, _body, ok} = await api.put(`/products/${test_product_code}`).set('Authorization', `Bearer ${token}`).send(product);
+            const { statusCode, _body, ok} = await api.put(`/products/${test_product_id}`).set('Authorization', `Bearer ${token}`).send(product);
             expect(statusCode).to.be.equal(200);    
             expect(_body).to.have.property('stock').to.be.equal(1000);
         });
