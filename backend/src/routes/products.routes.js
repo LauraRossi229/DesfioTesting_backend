@@ -16,22 +16,22 @@ productosRouter.get("/:id", getProduct);
 
 productosRouter.put(
   "/:id",
-  //passportError("jwt"),
-  //authorization("premium"),
+  passportError("jwt"),
+  authorization("premium"),
   putProduct
 );
 
 productosRouter.delete(
   "/:id",
-  //passportError("jwt"),
-  //authorization("admin"),
+  passportError("jwt"),
+  authorization("admin"),
   deleteProduct
 );
 
 productosRouter.post(
   "/",
-  // passportError("jwt"),
- // authorization("admin"),
+  passportError("jwt"),
+ authorization("admin"),
   postProduct
 );
 
